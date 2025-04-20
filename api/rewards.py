@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from datetime import datetime
-from ..models.database import get_db
+from models.database import get_db
 
 rewards_bp = Blueprint('rewards', __name__, url_prefix='/api/rewards')
 
