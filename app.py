@@ -3,12 +3,21 @@ from flask import Flask, jsonify
 from threading import Thread
 import time
 import os
-from .config import SECRET_KEY, DATABASE, ZALO_APP_ID, ZALO_APP_SECRET, ZALO_OAUTH_URL, ZALO_USER_INFO_URL, ADMIN_USERNAME, ADMIN_PASSWORD
-from .models.database import init_db, check_and_init_db, close_db
-from .auth.routes import auth_bp
-from .api.user import user_bp
-from .api.rewards import rewards_bp
-from .api.admin import admin_bp
+import config
+from models.database import init_db, check_and_init_db, close_db
+from auth.routes import auth_bp
+from api.user import user_bp
+from api.rewards import rewards_bp
+from api.admin import admin_bp
+
+SECRET_KEY = config.SECRET_KEY
+DATABASE = config.DATABASE
+ZALO_APP_ID = config.ZALO_APP_ID
+ZALO_APP_SECRET = config.ZALO_APP_SECRET
+ZALO_OAUTH_URL = config.ZALO_OAUTH_URL
+ZALO_USER_INFO_URL = config.ZALO_USER_INFO_URL
+ADMIN_USERNAME = config.ADMIN_USERNAME
+ADMIN_PASSWORD = config.ADMIN_PASSWORD
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
