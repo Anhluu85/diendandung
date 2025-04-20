@@ -3,8 +3,17 @@ import requests
 import json
 from datetime import datetime, timedelta
 import jwt
-from ..models.database import get_db
 
+import config
+from models.database import get_db
+
+SECRET_KEY = config.SECRET_KEY
+ZALO_APP_ID = config.ZALO_APP_ID
+ZALO_APP_SECRET = config.ZALO_APP_SECRET
+ZALO_OAUTH_URL = config.ZALO_OAUTH_URL
+ZALO_USER_INFO_URL = config.ZALO_USER_INFO_URL
+ADMIN_USERNAME = config.ADMIN_USERNAME
+ADMIN_PASSWORD = config.ADMIN_PASSWORD
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
 
 def token_required(roles=None): # roles là một danh sách các vai trò được phép
