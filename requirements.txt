@@ -1,0 +1,6 @@
+streamlit
+flask
+requests
+python-jose
+cryptography
+toml
