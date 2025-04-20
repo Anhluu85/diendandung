@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, current_app
 from datetime import datetime
 from functools import wraps
 import jwt
-from ..models.database import get_db
+from models.database import get_db
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/api/admin')
 
