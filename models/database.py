@@ -1,7 +1,9 @@
 from flask import g
 import sqlite3
 import os
-from ..config import DATABASE
+import config
+
+DATABASE = config.DATABASE
 
 def get_db():
     db = getattr(g, '_database', None)
