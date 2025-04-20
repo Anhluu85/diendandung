@@ -5,7 +5,7 @@ import toml
 secrets_file_path = os.path.join(os.getcwd(), ".streamlit", "secrets.toml")
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your_secret_key_here')
-DATABASE = 'D:/zalo_loyalty_backend/loyalty.db'
+DATABASE = 'loyalty.db'
 
 # Thông tin Zalo API
 ZALO_APP_ID = '1701849455681669153'
