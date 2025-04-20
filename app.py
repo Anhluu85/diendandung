@@ -42,6 +42,21 @@ def run_flask_app():
     with app.app_context():
         check_and_init_db(app)
     app.run(host='0.0.0.0', port=8080, debug=False, use_reloader=False)
+import streamlit as st
+import requests
+
+zalo_id = st.text_input("Nhập Zalo ID:")
+if st.button("Lấy điểm"):
+    if zalo_id:
+        try:
+            response = requests.get(f"http://localhost:8080/api/user/points?zalo_id={zalo_id}")  # Sử dụng localhost vì Flask chạy trong cùng container
+            response.raise_for_status()  # Báo lỗi HTTP nếu có
+            data = response.json()
+            st.write(f"Điểm của Zalo ID {zalo_id}: {data['points']}")
+        except requests.exceptions.RequestException as e:
+            st.error(f"Lỗi: {e}")
+    else:
+        st.warning("Vui lòng nhập Zalo ID.")
 
 if __name__ == '__main__':
     thread = Thread(target=run_flask_app)
